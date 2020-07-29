@@ -127,7 +127,8 @@ Try {
 		Show-InstallationProgress
 
 		## <Perform Pre-Installation tasks here>
-		Execute-MSI -Action 'Uninstall' -Path '{F6C90918-49CD-4E99-9FF2-10A11A3E1577}'
+		##Uninstall Previous version
+		##Execute-MSI -Action 'Uninstall' -Path '{F6C90918-49CD-4E99-9FF2-10A11A3E1577}'
 
 		##*===============================================
 		##* INSTALLATION

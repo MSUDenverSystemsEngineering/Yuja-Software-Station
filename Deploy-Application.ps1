@@ -67,12 +67,12 @@ Try {
 	## Variables: Application
 	[string]$appVendor = 'Yuja'
 	[string]$appName = 'Software Station'
-	[string]$appVersion = '10.6'
+	[string]$appVersion = '10.10'
 	[string]$appArch = ''
 	[string]$appLang = 'EN'
 	[string]$appRevision = '01'
 	[string]$appScriptVersion = '1.0.0'
-	[string]$appScriptDate = '28/03/2020'
+	[string]$appScriptDate = '01/15/2021'
 	[string]$appScriptAuthor = 'James Hardy'
 	##*===============================================
 	## Variables: Install Titles (Only set here to override defaults set by the toolkit)
@@ -129,6 +129,8 @@ Try {
 		## <Perform Pre-Installation tasks here>
 		##Uninstall Previous version
 		##Execute-MSI -Action 'Uninstall' -Path '{F6C90918-49CD-4E99-9FF2-10A11A3E1577}'
+		##Uninstall Yuja 10.6
+		Execute-MSI -Action 'Uninstall' -Path '{B0DD2C0A-59AC-46CC-B39E-A275D5933D84}'
 
 		##*===============================================
 		##* INSTALLATION
@@ -185,7 +187,8 @@ Try {
 		}
 
 		# <Perform Uninstallation tasks here>
-		Execute-MSI -Action 'Uninstall' -Path '{B0DD2C0A-59AC-46CC-B39E-A275D5933D84}'
+		Execute-MSI -Action 'Uninstall' -Path '{5B266D3E-4A40-42E1-B089-A7B94D131D9F}'
+
 
 		##*===============================================
 		##* POST-UNINSTALLATION

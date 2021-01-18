@@ -144,7 +144,7 @@ Try {
 		}
 
 		## <Perform Installation tasks here>
-		Execute-Process -Path "$dirfiles\YuJa-Software-Capture-Full.exe" -Parameters "/S /v`" /qn`"" -WindowStyle "Hidden" -WaitForMsiExec -PassThru
+		Execute-Process -Path "$dirfiles\YuJa-Software-Capture-Full.exe" -Parameters "/S /v `"/qn`"" -WindowStyle "Hidden" -WaitForMsiExec -PassThru
 
 		##*===============================================
 		##* POST-INSTALLATION

@@ -130,7 +130,9 @@ Try {
 		##Uninstall Previous version
 		##Execute-MSI -Action 'Uninstall' -Path '{F6C90918-49CD-4E99-9FF2-10A11A3E1577}'
 		##Uninstall Yuja 10.6
+		If (Test-Path 'HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{B0DD2C0A-59AC-46CC-B39E-A275D5933D84}') {
 		Execute-MSI -Action 'Uninstall' -Path '{B0DD2C0A-59AC-46CC-B39E-A275D5933D84}'
+		}
 
 		##*===============================================
 		##* INSTALLATION
@@ -152,7 +154,7 @@ Try {
 		[string]$installPhase = 'Post-Installation'
 
 		## <Perform Post-Installation tasks here>
-		Execute-Process -Path "$envSystem32Directory\netsh.exe" -Parameters "advfirewall firewall add rule name=`"Yuja Software Station`" dir=in action=allow program=`"C:\program files (x86)\yuja\yuja software station\yuja software station.exe`" description=`"Yuja Software Station`" enable=yes profile=any protocol=tcp edge=deferuser" -WindowStyle "Hidden"
+		## Execute-Process -Path "$envSystem32Directory\netsh.exe" -Parameters "advfirewall firewall add rule name=`"Yuja Software Station`" dir=in action=allow program=`"C:\program files (x86)\yuja\yuja software station\yuja software station.exe`" description=`"Yuja Software Station`" enable=yes profile=any protocol=tcp edge=deferuser" -WindowStyle "Hidden"
 
 		## Display a message at the end of the install
 		If (-not $useDefaultMsi) {
@@ -197,7 +199,7 @@ Try {
 		[string]$installPhase = 'Post-Uninstallation'
 
 		## <Perform Post-Uninstallation tasks here>
-
+		Remove-File -Path "$envCommonDesktop\YuJa Software Capture.lnk" -ContinueOnError $true
 
 	}
 	ElseIf ($deploymentType -ieq 'Repair')

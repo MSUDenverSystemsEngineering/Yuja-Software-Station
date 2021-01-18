@@ -187,7 +187,8 @@ Try {
 		}
 
 		# <Perform Uninstallation tasks here>
-		Execute-MSI -Action 'Uninstall' -Path '{5B266D3E-4A40-42E1-B089-A7B94D131D9F}'
+		##Execute-MSI -Action 'Uninstall' -Path '{5B266D3E-4A40-42E1-B089-A7B94D131D9F}'
+		Execute-Process -Path "$dirfiles\YuJa-Software-Capture-Full.exe" -Parameters "/uninstall /quiet `" /qn`"" -WindowStyle "Hidden" -WaitForMsiExec -PassThru
 
 
 		##*===============================================

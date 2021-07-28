@@ -127,12 +127,6 @@ Try {
 		Show-InstallationProgress
 
 		## <Perform Pre-Installation tasks here>
-		##Uninstall Previous version
-		##Execute-MSI -Action 'Uninstall' -Path '{F6C90918-49CD-4E99-9FF2-10A11A3E1577}'
-		##Uninstall Yuja 10.6
-		If (Test-Path 'HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{B0DD2C0A-59AC-46CC-B39E-A275D5933D84}') {
-		Execute-MSI -Action 'Uninstall' -Path '{B0DD2C0A-59AC-46CC-B39E-A275D5933D84}'
-		}
 
 		##*===============================================
 		##* INSTALLATION
@@ -146,7 +140,7 @@ Try {
 		}
 
 		## <Perform Installation tasks here>
-		Execute-Process -Path "$dirfiles\YuJa-Software-Capture-Full.exe" -Parameters "/S /v `"/qn`"" -WindowStyle "Hidden" -WaitForMsiExec -PassThru
+		Execute-Process -Path "$dirfiles\YuJa-Software-Capture_f31c0576-36f5-4024-92f4-b55c853db832.exe" -Parameters "/s /v `"/qn`"" -WindowStyle "Hidden" -PassThru
 
 		##*===============================================
 		##* POST-INSTALLATION
@@ -190,7 +184,7 @@ Try {
 
 		# <Perform Uninstallation tasks here>
 		##Execute-MSI -Action 'Uninstall' -Path '{5B266D3E-4A40-42E1-B089-A7B94D131D9F}'
-		Execute-Process -Path "$dirfiles\YuJa-Software-Capture-Full.exe" -Parameters "/uninstall /quiet `" /qn`"" -WindowStyle "Hidden" -WaitForMsiExec -PassThru
+		Execute-Process -Path "C:\ProgramData\Package Cache\{d4a51c3a-50d6-4fc9-b1ec-d25330a5b91b}\YuJa Software Capture Installer.exe" -Parameters "/uninstall /quiet `" /qn`"" -WindowStyle "Hidden" -PassThru
 
 
 		##*===============================================
